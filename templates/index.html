@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cross-Lingual AI Game Arena</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="logo">
+      <span class="logo-icon">🛡️</span>
+      <span class="logo-title">SENTINEL<span class="accent">AI</span></span>
+    </div>
+    <div class="pipeline-badge">Transformer Pipeline: XLM-RoBERTa Active</div>
+  </header>
+
+  <div class="lobby-bar">
+    <div class="lobby-field">
+      <label>Player</label>
+      <select id="player-select">
+        <option value="Player1">Player 1 (X)</option>
+        <option value="Player2">Player 2 (O)</option>
+      </select>
+    </div>
+
+    <div class="lobby-field">
+      <label>Language</label>
+      <select id="lang-select">
+        <option value="en">English (en)</option>
+        <option value="hi">Hindi (hi)</option>
+        <option value="ta">Tamil (ta)</option>
+        <option value="te">Telugu (te)</option>
+        <option value="es">Spanish (es)</option>
+      </select>
+    </div>
+
+    <button id="btn-connect" class="btn-glow" onclick="connectSession()">Join Arena</button>
+  </div>
+
+  <main class="arena-grid">
+    <!-- Game Section -->
+    <div class="panel game-panel">
+      <div class="panel-header">
+        <div id="player-badge" class="badge-role">Not Joined</div>
+        <div id="turn-banner" class="turn-status">Awaiting opponent...</div>
+      </div>
+
+      <div class="board-container">
+        <div class="board" id="board">
+          <button class="cell" data-idx="0"></button>
+          <button class="cell" data-idx="1"></button>
+          <button class="cell" data-idx="2"></button>
+          <button class="cell" data-idx="3"></button>
+          <button class="cell" data-idx="4"></button>
+          <button class="cell" data-idx="5"></button>
+          <button class="cell" data-idx="6"></button>
+          <button class="cell" data-idx="7"></button>
+          <button class="cell" data-idx="8"></button>
+        </div>
+      </div>
+
+      <div class="game-footer">
+        <button id="btn-reset" class="btn-outline" onclick="triggerReset()">Rematch / Reset</button>
+      </div>
+    </div>
+
+    <!-- Chat & AI Moderation Section -->
+    <div class="panel chat-panel">
+      <div class="panel-header">
+        <span>Cross-Lingual Moderated Feed</span>
+        <span id="target-lang-tag" class="lang-tag">Target: --</span>
+      </div>
+
+      <div class="chat-feed" id="chat-feed">
+        <div class="system-intro">
+          Connect to start chatting in your native or code-mixed language.
+        </div>
+      </div>
+
+      <div class="chat-bar">
+        <input type="text" id="chat-input" placeholder="Type casual or code-mixed slang..." disabled autocomplete="off">
+        <button id="btn-send" class="btn-send" onclick="sendChatMessage()" disabled>Send</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/js/game.js"></script>
+  <script src="/static/js/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+websockets
+torch
+transformers
+sentencepiece
+protobuf
+deep-translator
+pydantic
+jinja2
